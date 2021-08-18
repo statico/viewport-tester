@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Viewport Tester</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="p-1">
+    <pre id="info">Hello</pre>
+    <div class="input-group mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Focus me to test mobile keyboard"
+      />
+      <span class="input-group-text">Send</span>
+    </div>
+    <a href="https://www.xitalogy.com/apps/web-dev/show-my-viewport/"
+      >inspiration</a
+    >
+
+    <script>
+      function update() {
+        const de = document,
+          w = window,
+          s = screen
+        const info = [
+          `screen: ${s.width} x ${s.height}`,
+          `client: ${de.clientWidth} x ${de.clientHeight}`,
+          `window inner: ${w.innerWidth} x ${w.innerHeight}`,
+          `window outer: ${w.outerWidth} x ${w.outerHeight}`,
+          `avail: ${s.availWidth} x ${s.availHeight}`,
+          `devicePixelRatio: ${w.devicePixelRatio}`,
+        ]
+        document.getElementById("info").innerText = info.join("\n")
+      }
+      window.addEventListener("load", update)
+      window.addEventListener("resize", update)
+      document.body.addEventListener("mousemove", update)
+      document.body.addEventListener("touchstart", update)
+    </script>
+  </body>
+</html>
